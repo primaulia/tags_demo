@@ -18,6 +18,18 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def upvote
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.liked_by(current_user)
+    redirect_to root_path
+  end
+
+  def downvote
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.downvote_from(current_user)
+    redirect_to root_path
+  end
+
   private
 
   def restaurant_params

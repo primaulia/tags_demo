@@ -5,4 +5,9 @@
       <span class="badge badge-pill badge-primary"><%= tag %></span>
     <% end %>
   </div>
+
+  <div class="votes">
+    <%= link_to "upvote (#{restaurant.get_upvotes.size})", upvote_restaurant_path(restaurant), class: 'btn btn-success', method: :post %>
+    <%= link_to "downvote (#{restaurant.get_downvotes.size})", downvote_restaurant_path(restaurant), class: 'btn btn-danger', method: :post  %>
+  </div>
 </div>
